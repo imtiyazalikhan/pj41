@@ -1,19 +1,15 @@
-class Umbrella{
+class  Umbrella extends BaseClass {
     constructor(x,y){
-        var options = {
-            isStatic: true
-        }
-        this.body = Bodies.rectangle(x,y,width,height,options);
-          this.width = width;
-          this.height = height;
-          World.add(world, this.body);
-          this.image=loadImage("images/umbrella.jpg")
+      var options = {
+        isStatic: true
     }
-    display(){
-        var pos =this.body.position;
-        rectMode(CENTER);
-        
-        rect(pos.x, pos.y, this.width, this.height);
-      }
+      super(x,y,50,50);
+      this.image = loadImage("sprites/umbrella.png");
     }
     
+    display() {
+  
+      super.display();
+    }
+  }
+  

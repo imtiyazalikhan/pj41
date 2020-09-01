@@ -1,16 +1,31 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
-function preload(){}
+
+var engine, world;
+var drop;
+var maxDrops=100;
 function setup(){
-    var canvas = createCanvas(1200,400);
-    engine = Engine.create();
+   createCanvas(400,800);
+   engine = Engine.create();
     world = engine.world;
-    umbrella=new Umbrella(70,70)
+    for(var i=0; i<maxDrops; i++){
+        maxDrops.push(new createDrop(random(0,400), random(0,400)));
+    }
+    if(this.rain.position.y > height){
+
+        Matter.body.setPosition(this.rain, {x:random(0,400), y:random(0,400)})
+    }
+    drop = new Drop(10,10);
+    ground = new Ground(200,height,400,10);
+    umbrella=new Umbrella(200,400);
 }
 
 function draw(){
-background("white");
-umbrella.display();
+    background("black")
+    Engine.update(engine);
+    drop.display();
+    ground.display();
+    umbrella.display();
 }   
 
